@@ -22,14 +22,14 @@
         :root {
             --bg-main: #120e0d;
             --bg-secondary: #1a1514;
-            --bg-card: #221b19;
+            --bg-card: #1c1615;
             --text-main: #f4eee9;
             --text-muted: #a39b94;
             --accent: #e0b0a0;
             --accent-hover: #f0cbbd;
             --font-serif: 'Cormorant Garamond', serif;
             --font-sans: 'Jost', sans-serif;
-            --transition: all 0.3s ease;
+            --transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
         html {
@@ -359,7 +359,7 @@
             opacity: 0.5;
         }
 
-        /* ================= УСЛУГИ ================= */
+        /* ================= УСЛУГИ (КАРТОЧКИ С ФОТО) ================= */
         .services {
             padding: 100px 0;
         }
@@ -386,37 +386,69 @@
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
         }
 
         .service-card {
+            position: relative;
             background: var(--bg-card);
             border: 1px solid rgba(255, 255, 255, 0.05);
             border-radius: 20px;
-            padding: 32px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
             transition: var(--transition);
         }
 
         .service-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
             border-color: rgba(224, 176, 160, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
         }
 
-        .service-icon {
-            font-size: 32px;
-            margin-bottom: 16px;
+        .service-img-wrapper {
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .service-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .service-card:hover .service-img {
+            transform: scale(1.08);
+        }
+
+        .service-content {
+            padding: 30px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(to bottom, rgba(28, 22, 21, 0.9), rgba(28, 22, 21, 1));
+            position: relative;
+            z-index: 2;
+            margin-top: -20px; /* Наложение на фото для эффекта */
+            border-radius: 20px 20px 0 0;
         }
 
         .service-title {
-            font-size: 26px;
-            margin-bottom: 16px;
+            font-size: 28px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .price-list {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 14px;
         }
 
         .price-item {
@@ -425,11 +457,16 @@
             justify-content: space-between;
             gap: 10px;
             font-size: 14px;
+            color: var(--text-muted);
+        }
+        
+        .price-item span:first-child {
+            color: var(--text-main);
         }
 
         .price-dots {
             flex-grow: 1;
-            border-bottom: 1px dotted rgba(255, 255, 255, 0.2);
+            border-bottom: 1px dotted rgba(255, 255, 255, 0.15);
             margin: 0 5px;
             transform: translateY(-3px);
         }
@@ -441,7 +478,7 @@
             white-space: nowrap;
         }
 
-        /* ================= АКЦИИ / CTA ================= */
+        /* ================= CTA / АКЦИИ ================= */
         .cta {
             background: linear-gradient(135deg, rgba(224, 176, 160, 0.1) 0%, rgba(18, 14, 13, 1) 100%);
             padding: 100px 0;
@@ -741,75 +778,101 @@
             </div>
 
             <div class="services-grid">
+                
                 <!-- Косметология -->
                 <div class="service-card">
-                    <div class="service-icon">🌸</div>
-                    <h3 class="service-title">Косметология</h3>
-                    <ul class="price-list">
-                        <li class="price-item"><span>Чистка лица</span><span class="price-dots"></span><span class="price-val">1 700 ₽</span></li>
-                        <li class="price-item"><span>Уход за лицом</span><span class="price-dots"></span><span class="price-val">от 500 ₽</span></li>
-                        <li class="price-item"><span>Массаж лица</span><span class="price-dots"></span><span class="price-val">1 000 ₽</span></li>
-                        <li class="price-item"><span>Депиляция</span><span class="price-dots"></span><span class="price-val">от 200 ₽</span></li>
-                    </ul>
+                    <div class="service-img-wrapper">
+                        <img src="https://i.pinimg.com/736x/c9/d3/8b/c9d38b99c1a0601344a49db2fb842715.jpg" alt="Косметология" class="service-img" loading="lazy">
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Косметология</h3>
+                        <ul class="price-list">
+                            <li class="price-item"><span>Чистка лица</span><span class="price-dots"></span><span class="price-val">1 700 ₽</span></li>
+                            <li class="price-item"><span>Уход за лицом</span><span class="price-dots"></span><span class="price-val">от 500 ₽</span></li>
+                            <li class="price-item"><span>Массаж лица</span><span class="price-dots"></span><span class="price-val">1 000 ₽</span></li>
+                            <li class="price-item"><span>Депиляция</span><span class="price-dots"></span><span class="price-val">от 200 ₽</span></li>
+                        </ul>
+                    </div>
                 </div>
 
                 <!-- Ногтевой сервис -->
                 <div class="service-card">
-                    <div class="service-icon">💅</div>
-                    <h3 class="service-title">Ногтевой сервис</h3>
-                    <ul class="price-list">
-                        <li class="price-item"><span>Маникюр</span><span class="price-dots"></span><span class="price-val">800 ₽</span></li>
-                        <li class="price-item"><span>Педикюр</span><span class="price-dots"></span><span class="price-val">1 400 ₽</span></li>
-                        <li class="price-item"><span>Маникюр + шеллак</span><span class="price-dots"></span><span class="price-val">1 200 ₽</span></li>
-                        <li class="price-item"><span>Педикюр + шеллак</span><span class="price-dots"></span><span class="price-val">1 800 ₽</span></li>
-                    </ul>
+                    <div class="service-img-wrapper">
+                        <img src="https://i.pinimg.com/736x/83/85/27/838527613140f66a03042c2fdbc37c81.jpg" alt="Ногтевой сервис" class="service-img" loading="lazy">
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Ногтевой сервис</h3>
+                        <ul class="price-list">
+                            <li class="price-item"><span>Маникюр</span><span class="price-dots"></span><span class="price-val">800 ₽</span></li>
+                            <li class="price-item"><span>Педикюр</span><span class="price-dots"></span><span class="price-val">1 400 ₽</span></li>
+                            <li class="price-item"><span>Маникюр + шеллак</span><span class="price-dots"></span><span class="price-val">1 200 ₽</span></li>
+                            <li class="price-item"><span>Педикюр + шеллак</span><span class="price-dots"></span><span class="price-val">1 800 ₽</span></li>
+                        </ul>
+                    </div>
                 </div>
 
                 <!-- Парикмахерский зал -->
                 <div class="service-card">
-                    <div class="service-icon">✂️</div>
-                    <h3 class="service-title">Парикмахерский зал</h3>
-                    <ul class="price-list">
-                        <li class="price-item"><span>Стрижка женская</span><span class="price-dots"></span><span class="price-val">1 100 ₽</span></li>
-                        <li class="price-item"><span>Стрижка мужская</span><span class="price-dots"></span><span class="price-val">700 ₽</span></li>
-                        <li class="price-item"><span>Окрашивание</span><span class="price-dots"></span><span class="price-val">от 3 500 ₽</span></li>
-                        <li class="price-item"><span>Ботокс волос</span><span class="price-dots"></span><span class="price-val">4 500 ₽</span></li>
-                    </ul>
+                    <div class="service-img-wrapper">
+                        <img src="https://i.pinimg.com/736x/1e/2a/bb/1e2abb48c672dd546560623b7c4e0b10.jpg" alt="Парикмахерский зал" class="service-img" loading="lazy">
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Парикмахерский зал</h3>
+                        <ul class="price-list">
+                            <li class="price-item"><span>Стрижка женская</span><span class="price-dots"></span><span class="price-val">1 100 ₽</span></li>
+                            <li class="price-item"><span>Стрижка мужская</span><span class="price-dots"></span><span class="price-val">700 ₽</span></li>
+                            <li class="price-item"><span>Окрашивание</span><span class="price-dots"></span><span class="price-val">от 3 500 ₽</span></li>
+                            <li class="price-item"><span>Ботокс волос</span><span class="price-dots"></span><span class="price-val">4 500 ₽</span></li>
+                        </ul>
+                    </div>
                 </div>
 
                 <!-- Массаж -->
                 <div class="service-card">
-                    <div class="service-icon">🤲</div>
-                    <h3 class="service-title">Массаж и LPG</h3>
-                    <ul class="price-list">
-                        <li class="price-item"><span>Массаж LPG тела</span><span class="price-dots"></span><span class="price-val">850 ₽</span></li>
-                        <li class="price-item"><span>Классический</span><span class="price-dots"></span><span class="price-val">1 500 ₽</span></li>
-                        <li class="price-item"><span>Антицеллюлитный</span><span class="price-dots"></span><span class="price-val">1 700 ₽</span></li>
-                        <li class="price-item"><span>Спина и шея</span><span class="price-dots"></span><span class="price-val">1 200 ₽</span></li>
-                    </ul>
+                    <div class="service-img-wrapper">
+                        <img src="https://i.pinimg.com/1200x/4e/a6/ef/4ea6ef873705a57c2db85f52d20408c0.jpg" alt="Массаж и LPG" class="service-img" loading="lazy">
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Массаж и LPG</h3>
+                        <ul class="price-list">
+                            <li class="price-item"><span>Массаж LPG тела</span><span class="price-dots"></span><span class="price-val">850 ₽</span></li>
+                            <li class="price-item"><span>Классический</span><span class="price-dots"></span><span class="price-val">1 500 ₽</span></li>
+                            <li class="price-item"><span>Антицеллюлитный</span><span class="price-dots"></span><span class="price-val">1 700 ₽</span></li>
+                            <li class="price-item"><span>Спина и шея</span><span class="price-dots"></span><span class="price-val">1 200 ₽</span></li>
+                        </ul>
+                    </div>
                 </div>
 
                 <!-- Брови и ресницы -->
                 <div class="service-card">
-                    <div class="service-icon">👁️</div>
-                    <h3 class="service-title">Брови и ресницы</h3>
-                    <ul class="price-list">
-                        <li class="price-item"><span>Окрашивание бровей</span><span class="price-dots"></span><span class="price-val">700 ₽</span></li>
-                        <li class="price-item"><span>Окрашивание ресниц</span><span class="price-dots"></span><span class="price-val">700 ₽</span></li>
-                        <li class="price-item"><span>Коррекция формы</span><span class="price-dots"></span><span class="price-val">по запросу</span></li>
-                    </ul>
+                    <div class="service-img-wrapper">
+                        <img src="https://i.pinimg.com/736x/6d/01/51/6d01510111b98e74c6436a6c12ad0b44.jpg" alt="Брови и ресницы" class="service-img" loading="lazy">
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Брови и ресницы</h3>
+                        <ul class="price-list">
+                            <li class="price-item"><span>Окрашивание бровей</span><span class="price-dots"></span><span class="price-val">700 ₽</span></li>
+                            <li class="price-item"><span>Окрашивание ресниц</span><span class="price-dots"></span><span class="price-val">700 ₽</span></li>
+                            <li class="price-item"><span>Коррекция формы</span><span class="price-dots"></span><span class="price-val">по запросу</span></li>
+                        </ul>
+                    </div>
                 </div>
 
                 <!-- Солярий -->
                 <div class="service-card">
-                    <div class="service-icon">☀️</div>
-                    <h3 class="service-title">Солярий</h3>
-                    <ul class="price-list">
-                        <li class="price-item"><span>Вертикальный</span><span class="price-dots"></span><span class="price-val">20 ₽ / мин</span></li>
-                        <li class="price-item"><span>Горизонтальный</span><span class="price-dots"></span><span class="price-val">20 ₽ / мин</span></li>
-                        <li class="price-item"><span>Пакетные предложения</span><span class="price-dots"></span><span class="price-val">по запросу</span></li>
-                    </ul>
+                    <div class="service-img-wrapper">
+                        <img src="https://i.pinimg.com/736x/5f/af/d6/5fafd6ae9dfdadc184d876b161274fde.jpg" alt="Солярий" class="service-img" loading="lazy">
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Солярий</h3>
+                        <ul class="price-list">
+                            <li class="price-item"><span>Вертикальный</span><span class="price-dots"></span><span class="price-val">20 ₽ / мин</span></li>
+                            <li class="price-item"><span>Горизонтальный</span><span class="price-dots"></span><span class="price-val">20 ₽ / мин</span></li>
+                            <li class="price-item"><span>Пакетные предложения</span><span class="price-dots"></span><span class="price-val">по запросу</span></li>
+                        </ul>
+                    </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -882,16 +945,4 @@
             mobileMenu.classList.add('active');
         });
 
-        closeMenu.addEventListener('click', () => {
-            mobileMenu.classList.remove('active');
-        });
-
-        // Закрытие меню при клике на ссылку
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('active');
-            });
-        });
-    </script>
-</body>
-</html>
+        closeMenu
