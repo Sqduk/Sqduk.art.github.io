@@ -256,22 +256,34 @@
             flex-wrap: wrap;
         }
 
-        .hero-image {
+        /* Блок для фото/видео */
+        .hero-media-container {
             position: relative;
             height: 600px;
-            border-radius: 300px 300px 20px 20px;
-            background: linear-gradient(180deg, #2a211d 0%, #1a1514 100%);
+            border-radius: 300px 300px 20px 20px; /* Форма арки */
             overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
         }
 
-        .hero-image::before {
-            content: '🦋';
-            font-size: 120px;
-            filter: drop-shadow(0 10px 30px rgba(224, 176, 160, 0.3));
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1; /* Картинка на заднем плане */
+        }
+
+        .hero-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 2; /* Видео перекрывает картинку, если оно есть */
         }
 
         .hero-features {
@@ -342,21 +354,17 @@
             margin-top: 30px;
         }
 
-        .about-image {
+        .about-image-container {
             height: 500px;
             border-radius: 20px;
-            background: linear-gradient(135deg, #2a211d, #1a1514);
+            overflow: hidden;
             border: 1px solid rgba(255, 255, 255, 0.05);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
         }
 
-        .about-image::before {
-            content: '✨';
-            font-size: 80px;
-            opacity: 0.5;
+        .about-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         /* ================= УСЛУГИ (КАРТОЧКИ С ФОТО) ================= */
@@ -433,7 +441,7 @@
             background: linear-gradient(to bottom, rgba(28, 22, 21, 0.9), rgba(28, 22, 21, 1));
             position: relative;
             z-index: 2;
-            margin-top: -20px; /* Наложение на фото для эффекта */
+            margin-top: -20px;
             border-radius: 20px 20px 0 0;
         }
 
@@ -611,12 +619,12 @@
             .hero-grid, .about-grid {
                 grid-template-columns: 1fr;
             }
-            .hero-image {
+            .hero-media-container {
                 height: 400px;
                 max-width: 400px;
                 margin: 0 auto;
             }
-            .about-image {
+            .about-image-container {
                 height: 400px;
                 order: -1;
             }
@@ -715,8 +723,20 @@
                     </div>
                 </div>
                 
-                <div class="hero-image">
-                    <!-- Декоративный элемент вместо фото -->
+                <div class="hero-media-container">
+                    <!-- Фотография на фоне -->
+                    <img src="https://i.pinimg.com/736x/e6/ac/0f/e6ac0f04ba25afdbbfb26233316cb1ad.jpg" alt="Студия красоты Кариана" class="hero-image">
+
+                    <!-- МЕСТО ДЛЯ ВИДЕО -->
+                    <!-- Чтобы видео заработало, раскомментируйте код ниже и убедитесь, что файл hero-video.mp4 лежит в одной папке с index.html -->
+                    
+                    <!-- 
+                    <video class="hero-video" autoplay loop muted playsinline>
+                        <source src="hero-video.mp4" type="video/mp4">
+                        Ваш браузер не поддерживает видео.
+                    </video> 
+                    -->
+                    
                 </div>
             </div>
             
@@ -760,8 +780,8 @@
                 </p>
                 <p class="about-sign">Побалуйте себя ♡</p>
             </div>
-            <div class="about-image">
-                <!-- Декоративный элемент вместо фото интерьера -->
+            <div class="about-image-container">
+                <img src="https://i.pinimg.com/736x/3d/23/f0/3d23f06582f13b86b3f5c574ddde6a35.jpg" alt="Атмосфера студии" class="about-image">
             </div>
         </div>
     </section>
@@ -907,42 +927,4 @@
                         <li><span>СПб, пр. Луначарского, 11 к1</span></li>
                         <li><span>Ежедневно 10:00 – 21:00</span></li>
                     </ul>
-                </div>
-                <div>
-                    <h4 class="footer-title">Соцсети</h4>
-                    <ul class="footer-list">
-                        <li><a href="https://vk.com/studiyakariana" target="_blank">ВКонтакте</a></li>
-                        <li><a href="#">Telegram</a></li>
-                        <li><a href="#">WhatsApp</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <span>© 2024 Студия красоты «Кариана». Все права защищены.</span>
-                <span>Есть противопоказания. Необходима консультация специалиста.</span>
-            </div>
-        </div>
-    </footer>
-
-    <!-- СКРИПТЫ -->
-    <script>
-        // Эффект прилипания шапки
-        const header = document.getElementById('header');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-
-        // Мобильное меню
-        const burger = document.getElementById('burger');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const closeMenu = document.getElementById('closeMenu');
-
-        burger.addEventListener('click', () => {
-            mobileMenu.classList.add('active');
-        });
-
-        closeMenu
+                </
