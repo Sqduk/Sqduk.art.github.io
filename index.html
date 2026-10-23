@@ -153,6 +153,20 @@
             gap: 12px;
         }
 
+        /* Стили для картинки логотипа */
+        .logo-img {
+            height: 40px;
+            width: auto;
+            object-fit: contain;
+        }
+        
+        /* Если картинка логотипа не загрузится, покажется этот текст */
+        .logo-fallback {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
         .logo-icon {
             font-size: 24px;
             color: var(--accent);
@@ -260,7 +274,7 @@
         .hero-media-container {
             position: relative;
             height: 600px;
-            border-radius: 300px 300px 20px 20px; /* Форма арки */
+            border-radius: 300px 300px 20px 20px;
             overflow: hidden;
             border: 1px solid rgba(255, 255, 255, 0.05);
             box-shadow: 0 20px 50px rgba(0,0,0,0.5);
@@ -273,7 +287,7 @@
             position: absolute;
             top: 0;
             left: 0;
-            z-index: 1; /* Картинка на заднем плане */
+            z-index: 1;
         }
 
         .hero-video {
@@ -283,7 +297,7 @@
             position: absolute;
             top: 0;
             left: 0;
-            z-index: 2; /* Видео перекрывает картинку, если оно есть */
+            z-index: 2;
         }
 
         .hero-features {
@@ -367,7 +381,7 @@
             object-fit: cover;
         }
 
-        /* ================= УСЛУГИ (КАРТОЧКИ С ФОТО) ================= */
+        /* ================= УСЛУГИ ================= */
         .services {
             padding: 100px 0;
         }
@@ -560,6 +574,21 @@
             color: var(--accent);
         }
 
+        /* Стили для кликабельного адреса */
+        .address-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: underline;
+            text-decoration-color: rgba(224, 176, 160, 0.4);
+            text-underline-offset: 4px;
+        }
+
+        .address-link:hover {
+            color: var(--accent);
+            text-decoration-color: var(--accent);
+        }
+
         .footer-bottom {
             display: flex;
             justify-content: space-between;
@@ -672,9 +701,16 @@
     <!-- ШАПКА -->
     <header class="header" id="header">
         <div class="container nav">
+            <!-- Замена логотипа -->
             <a href="#" class="logo">
-                <span class="logo-icon">🦋</span>
-                <span class="logo-text">Кариана</span>
+                <!-- Путь к картинке. Замените logo.png на ваше имя файла, если назовете иначе -->
+                <img src="logo.png" alt="Кариана" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                
+                <!-- Этот блок покажется, если картинки нет -->
+                <div class="logo-fallback" style="display: none;">
+                    <span class="logo-icon">🦋</span>
+                    <span class="logo-text">Кариана</span>
+                </div>
             </a>
             
             <nav class="nav-links">
@@ -702,6 +738,8 @@
         <a href="#services">Услуги</a>
         <a href="#promo">Акции</a>
         <a href="tel:+79252668" class="btn" style="margin-top: 20px;">Позвонить</a>
+        <!-- Ссылка на карты в мобильном меню -->
+        <a href="https://2gis.ru/spb/search/%D1%81%D0%B0%D0%BB%D0%BE%D0%BD%D1%8B%20%D0%BA%D1%80%D0%B0%D1%81%D0%BE%D1%82%D1%8B/firm/5348553838914183?m=30.316257%2C60.052617%2F16.92" target="_blank" style="font-size: 18px; color: var(--text-muted); margin-top: 20px; text-decoration: underline;">Мы на карте</a>
     </div>
 
     <!-- ГЛАВНЫЙ ЭКРАН -->
@@ -727,16 +765,12 @@
                     <!-- Фотография на фоне -->
                     <img src="https://i.pinimg.com/736x/e6/ac/0f/e6ac0f04ba25afdbbfb26233316cb1ad.jpg" alt="Студия красоты Кариана" class="hero-image">
 
-                    <!-- МЕСТО ДЛЯ ВИДЕО -->
-                    <!-- Чтобы видео заработало, раскомментируйте код ниже и убедитесь, что файл hero-video.mp4 лежит в одной папке с index.html -->
-                    
+                    <!-- МЕСТО ДЛЯ ВИДЕО (раскомментируйте, когда добавите файл) -->
                     <!-- 
                     <video class="hero-video" autoplay loop muted playsinline>
                         <source src="hero-video.mp4" type="video/mp4">
-                        Ваш браузер не поддерживает видео.
                     </video> 
                     -->
-                    
                 </div>
             </div>
             
@@ -901,30 +935,4 @@
     <section class="cta" id="promo">
         <div class="container">
             <span class="subtitle">Специальные предложения</span>
-            <h2 class="cta-title">Готовы <span class="script">сиять?</span></h2>
-            <p class="cta-desc">
-                Запишитесь на процедуру прямо сейчас. Действуют акции на массаж, маникюр и педикюр с покрытием.
-            </p>
-            <div class="cta-btns">
-                <a href="tel:+79252668" class="btn">Позвонить: 925-26-68</a>
-                <a href="https://vk.com/studiyakariana" target="_blank" class="btn btn-ghost">Мы ВКонтакте</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ПОДВАЛ -->
-    <footer class="footer" id="contacts">
-        <div class="container">
-            <div class="footer-grid">
-                <div>
-                    <div class="footer-logo">Кариана</div>
-                    <p class="footer-desc">Студия красоты в Санкт-Петербурге. Косметология, ногти, волосы, массаж и солярий в одном месте.</p>
-                </div>
-                <div>
-                    <h4 class="footer-title">Контакты</h4>
-                    <ul class="footer-list">
-                        <li><a href="tel:+79252668">925-26-68</a></li>
-                        <li><span>СПб, пр. Луначарского, 11 к1</span></li>
-                        <li><span>Ежедневно 10:00 – 21:00</span></li>
-                    </ul>
-                </
+            <h2 class="cta-title">Готовы <span class="script">сиять?</span></h
