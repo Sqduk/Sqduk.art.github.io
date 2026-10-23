@@ -4,734 +4,97 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Кариана — Студия красоты</title>
-    <meta name="description" content="Студия красоты Кариана в Санкт-Петербурге. Косметология, ногтевой сервис, парикмахерский зал, массаж и солярий.">
-    
-    <!-- Подключение шрифтов -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
-    
     <style>
-        /* ================= СБРОС И БАЗОВЫЕ СТИЛИ ================= */
-        *, *::before, *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         :root {
-            --bg-main: #120e0d;
-            --bg-secondary: #1a1514;
-            --bg-card: #1c1615;
-            --text-main: #f4eee9;
-            --text-muted: #a39b94;
-            --accent: #e0b0a0;
-            --accent-hover: #f0cbbd;
-            --font-serif: 'Cormorant Garamond', serif;
-            --font-sans: 'Jost', sans-serif;
+            --bg-main: #120e0d; --bg-secondary: #1a1514; --bg-card: #1c1615;
+            --text-main: #f4eee9; --text-muted: #a39b94;
+            --accent: #e0b0a0; --accent-hover: #f0cbbd;
+            --font-serif: 'Cormorant Garamond', serif; --font-sans: 'Jost', sans-serif;
             --transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
         }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: var(--font-sans);
-            background-color: var(--bg-main);
-            color: var(--text-main);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: var(--transition);
-        }
-
-        ul {
-            list-style: none;
-        }
-
-        img {
-            max-width: 100%;
-            display: block;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        /* ================= ТИПОГРАФИКА ================= */
-        h1, h2, h3, .serif {
-            font-family: var(--font-serif);
-            font-weight: 500;
-            line-height: 1.1;
-        }
-
-        .script {
-            font-family: var(--font-serif);
-            font-style: italic;
-            color: var(--accent);
-            font-weight: 400;
-        }
-
-        .subtitle {
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            color: var(--text-muted);
-            margin-bottom: 16px;
-            display: block;
-        }
-
-        /* ================= КНОПКИ ================= */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 16px 32px;
-            background-color: var(--accent);
-            color: #1a1514;
-            border-radius: 50px;
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            font-weight: 500;
-            border: 1px solid var(--accent);
-            transition: var(--transition);
-            cursor: pointer;
-        }
-
-        .btn:hover {
-            background-color: transparent;
-            color: var(--accent);
-        }
-
-        .btn-ghost {
-            background-color: transparent;
-            color: var(--text-main);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .btn-ghost:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-        }
-
-        /* ================= ШАПКА ================= */
-        .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 100;
-            padding: 20px 0;
-            transition: var(--transition);
-        }
-
-        .header.scrolled {
-            background: rgba(18, 14, 13, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 15px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .nav {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        /* СТИЛИ ДЛЯ ЛОГОТИПА */
-        .logo-img {
-            height: 80px; /* Увеличенный размер для квадратного логотипа */
-            width: auto;
-            object-fit: contain;
-            mix-blend-mode: screen; /* Магия: убирает белый фон на темной теме */
-            margin: -20px 0; /* Убираем лишние пустые поля сверху и снизу */
-        }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-sans); background-color: var(--bg-main); color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
+        a { text-decoration: none; color: inherit; transition: var(--transition); }
+        ul { list-style: none; }
+        img { max-width: 100%; display: block; }
+        .container { width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+        h1, h2, h3, .serif { font-family: var(--font-serif); font-weight: 500; line-height: 1.1; }
+        .script { font-family: var(--font-serif); font-style: italic; color: var(--accent); font-weight: 400; }
+        .subtitle { font-size: 11px; text-transform: uppercase; letter-spacing: 0.2em; color: var(--text-muted); margin-bottom: 16px; display: block; }
+        .btn { display: inline-flex; align-items: center; justify-content: center; padding: 16px 32px; background-color: var(--accent); color: #1a1514; border-radius: 50px; font-size: 12px; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 500; border: 1px solid var(--accent); transition: var(--transition); cursor: pointer; }
+        .btn:hover { background-color: transparent; color: var(--accent); }
+        .btn-ghost { background-color: transparent; color: var(--text-main); border: 1px solid rgba(255, 255, 255, 0.2); }
+        .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+        .header { position: fixed; top: 0; left: 0; width: 100%; z-index: 100; padding: 20px 0; transition: var(--transition); }
+        .header.scrolled { background: rgba(18, 14, 13, 0.95); backdrop-filter: blur(10px); padding: 15px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+        .nav { display: flex; align-items: center; justify-content: space-between; }
+        .logo { display: flex; align-items: center; gap: 12px; }
         
-        /* Если картинка логотипа не загрузится, покажется этот текст */
-        .logo-fallback {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .logo-icon {
-            font-size: 24px;
-            color: var(--accent);
-        }
-
-        .logo-text {
-            font-family: var(--font-serif);
-            font-size: 22px;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 32px;
-        }
-
-        .nav-links a {
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: var(--text-muted);
-        }
-
-        .nav-links a:hover {
-            color: var(--text-main);
-        }
-
-        .nav-actions {
-            display: flex;
-            align-items: center;
-            gap: 24px;
-        }
-
-        .phone {
-            font-family: var(--font-serif);
-            font-size: 18px;
-            letter-spacing: 0.05em;
-        }
-
-        .phone:hover {
-            color: var(--accent);
-        }
-
-        .burger {
-            display: none;
-            flex-direction: column;
-            gap: 6px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 5px;
-        }
-
-        .burger span {
-            width: 25px;
-            height: 1.5px;
-            background-color: var(--text-main);
-            transition: var(--transition);
-        }
-
-        /* ================= ГЛАВНЫЙ ЭКРАН (HERO) ================= */
-        .hero {
-            position: relative;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 140px 0 80px;
-            background: radial-gradient(circle at 70% 50%, rgba(224, 176, 160, 0.08) 0%, transparent 50%);
-        }
-
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
-        }
-
-        .hero-title {
-            font-size: clamp(50px, 7vw, 100px);
-            margin-bottom: 20px;
-        }
-
-        .hero-title .script {
-            display: block;
-            font-size: 0.8em;
-            line-height: 0.8;
-            margin-top: 10px;
-        }
-
-        .hero-desc {
-            font-size: 16px;
-            color: var(--text-muted);
-            max-width: 400px;
-            margin-bottom: 40px;
-        }
-
-        .hero-btns {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-
-        /* Блок для фото/видео */
-        .hero-media-container {
-            position: relative;
-            height: 600px;
-            border-radius: 300px 300px 20px 20px;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-        }
-
-        .hero-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 1;
-        }
-
-        .hero-video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 2;
-        }
-
-        .hero-features {
-            display: flex;
-            gap: 40px;
-            margin-top: 60px;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .feature {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .feature-icon {
-            font-size: 20px;
-            color: var(--accent);
-        }
-
-        .feature-text {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .feature-title {
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            font-weight: 500;
-        }
-
-        .feature-sub {
-            font-size: 12px;
-            color: var(--text-muted);
-        }
-
-        /* ================= О СТУДИИ ================= */
-        .about {
-            background-color: var(--bg-secondary);
-            padding: 100px 0;
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .about-title {
-            font-size: clamp(36px, 5vw, 56px);
-            margin-bottom: 24px;
-        }
-
-        .about-text {
-            color: var(--text-muted);
-            margin-bottom: 20px;
-            font-size: 15px;
-        }
-
-        .about-sign {
-            font-family: var(--font-serif);
-            font-style: italic;
-            font-size: 28px;
-            color: var(--accent);
-            margin-top: 30px;
-        }
-
-        .about-image-container {
-            height: 500px;
-            border-radius: 20px;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .about-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* ================= УСЛУГИ ================= */
-        .services {
-            padding: 100px 0;
-        }
-
-        .section-head {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            margin-bottom: 60px;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .section-title {
-            font-size: clamp(40px, 5vw, 64px);
-        }
-
-        .section-desc {
-            color: var(--text-muted);
-            max-width: 300px;
-            font-size: 14px;
-            text-align: right;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-        }
-
-        .service-card {
-            position: relative;
-            background: var(--bg-card);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            transition: var(--transition);
-        }
-
-        .service-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(224, 176, 160, 0.3);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-        }
-
-        .service-img-wrapper {
-            width: 100%;
-            height: 220px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .service-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.8s ease;
-        }
-
-        .service-card:hover .service-img {
-            transform: scale(1.08);
-        }
-
-        .service-content {
-            padding: 30px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            background: linear-gradient(to bottom, rgba(28, 22, 21, 0.9), rgba(28, 22, 21, 1));
-            position: relative;
-            z-index: 2;
-            margin-top: -20px;
-            border-radius: 20px 20px 0 0;
-        }
-
-        .service-title {
-            font-size: 28px;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .price-list {
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-        }
-
-        .price-item {
-            display: flex;
-            align-items: baseline;
-            justify-content: space-between;
-            gap: 10px;
-            font-size: 14px;
-            color: var(--text-muted);
-        }
+        /* Настройки логотипа */
+        .logo-img { height: 80px; width: auto; object-fit: contain; mix-blend-mode: screen; margin: -20px 0; }
         
-        .price-item span:first-child {
-            color: var(--text-main);
-        }
-
-        .price-dots {
-            flex-grow: 1;
-            border-bottom: 1px dotted rgba(255, 255, 255, 0.15);
-            margin: 0 5px;
-            transform: translateY(-3px);
-        }
-
-        .price-val {
-            font-family: var(--font-serif);
-            font-size: 18px;
-            color: var(--accent);
-            white-space: nowrap;
-        }
-
-        /* ================= CTA / АКЦИИ ================= */
-        .cta {
-            background: linear-gradient(135deg, rgba(224, 176, 160, 0.1) 0%, rgba(18, 14, 13, 1) 100%);
-            padding: 100px 0;
-            text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .cta-title {
-            font-size: clamp(40px, 6vw, 72px);
-            margin-bottom: 20px;
-        }
-
-        .cta-desc {
-            color: var(--text-muted);
-            max-width: 500px;
-            margin: 0 auto 40px;
-        }
-
-        .cta-btns {
-            display: flex;
-            justify-content: center;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-
-        /* ================= ПОДВАЛ ================= */
-        .footer {
-            background-color: var(--bg-main);
-            padding: 60px 0 30px;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .footer-logo {
-            font-family: var(--font-serif);
-            font-size: 28px;
-            margin-bottom: 16px;
-        }
-
-        .footer-desc {
-            color: var(--text-muted);
-            font-size: 14px;
-            max-width: 300px;
-        }
-
-        .footer-title {
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--text-muted);
-            margin-bottom: 16px;
-            font-weight: 500;
-        }
-
-        .footer-list li {
-            margin-bottom: 10px;
-        }
-
-        .footer-list a, .footer-list span {
-            font-size: 14px;
-            color: var(--text-main);
-        }
-
-        .footer-list a:hover {
-            color: var(--accent);
-        }
-
-        /* Стили для кликабельного адреса */
-        .address-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            text-decoration: underline;
-            text-decoration-color: rgba(224, 176, 160, 0.4);
-            text-underline-offset: 4px;
-        }
-
-        .address-link:hover {
-            color: var(--accent);
-            text-decoration-color: var(--accent);
-        }
-
-        .footer-bottom {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 12px;
-            color: #666;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        /* ================= МОБИЛЬНОЕ МЕНЮ ================= */
-        .mobile-menu {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(18, 14, 13, 0.98);
-            backdrop-filter: blur(10px);
-            z-index: 99;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 30px;
-            opacity: 0;
-            pointer-events: none;
-            transition: var(--transition);
-        }
-
-        .mobile-menu.active {
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        .mobile-menu a {
-            font-family: var(--font-serif);
-            font-size: 32px;
-            color: var(--text-main);
-        }
-
-        .close-menu {
-            position: absolute;
-            top: 24px;
-            right: 24px;
-            font-size: 30px;
-            background: none;
-            border: none;
-            color: var(--text-main);
-            cursor: pointer;
-        }
-
-        /* ================= АДАПТИВНОСТЬ ================= */
-        @media (max-width: 992px) {
-            .hero-grid, .about-grid {
-                grid-template-columns: 1fr;
-            }
-            .hero-media-container {
-                height: 400px;
-                max-width: 400px;
-                margin: 0 auto;
-            }
-            .about-image-container {
-                height: 400px;
-                order: -1;
-            }
-            .footer-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-links, .nav-actions .phone {
-                display: none;
-            }
-            .burger {
-                display: flex;
-            }
-            .hero {
-                padding: 120px 0 60px;
-            }
-            .hero-title {
-                font-size: 52px;
-            }
-            .hero-features {
-                flex-direction: column;
-                gap: 20px;
-            }
-            .section-head {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .section-desc {
-                text-align: left;
-            }
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
-            .footer-bottom {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
+        .logo-fallback { display: flex; align-items: center; gap: 10px; }
+        .logo-icon { font-size: 24px; color: var(--accent); }
+        .logo-text { font-family: var(--font-serif); font-size: 22px; letter-spacing: 0.1em; text-transform: uppercase; }
+        .nav-links { display: flex; gap: 32px; }
+        .nav-links a { font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-muted); }
+        .nav-links a:hover { color: var(--text-main); }
+        .nav-actions { display: flex; align-items: center; gap: 24px; }
+        .phone { font-family: var(--font-serif); font-size: 18px; letter-spacing: 0.05em; }
+        .phone:hover { color: var(--accent); }
+        .burger { display: none; flex-direction: column; gap: 6px; background: none; border: none; cursor: pointer; padding: 5px; }
+        .burger span { width: 25px; height: 1.5px; background-color: var(--text-main); transition: var(--transition); }
+        .hero { position: relative; min-height: 100vh; display: flex; align-items: center; padding: 140px 0 80px; background: radial-gradient(circle at 70% 50%, rgba(224, 176, 160, 0.08) 0%, transparent 50%); }
+        .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+        .hero-title { font-size: clamp(50px, 7vw, 100px); margin-bottom: 20px; }
+        .hero-title .script { display: block; font-size: 0.8em; line-height: 0.8; margin-top: 10px; }
+        .hero-desc { font-size: 16px; color: var(--text-muted); max-width: 400px; margin-bottom: 40px; }
+        .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+        .hero-media-container { position: relative; height: 600px; border-radius: 300px 300px 20px 20px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.05); box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+        .hero-image { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1; }
+        .hero-features { display: flex; gap: 40px; margin-top: 60px; padding-top: 30px; border-top: 1px solid rgba(255, 255, 255, 0.1); }
+        .feature { display: flex; align-items: center; gap: 12px; }
+        .feature-icon { font-size: 20px; color: var(--accent); }
+        .feature-text { display: flex; flex-direction: column; }
+        .feature-title { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 500; }
+        .feature-sub { font-size: 12px; color: var(--text-muted); }
+        .about { background-color: var(--bg-secondary); padding: 100px 0; }
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .about-title { font-size: clamp(36px, 5vw, 56px); margin-bottom: 24px; }
+        .about-text { color: var(--text-muted); margin-bottom: 20px; font-size: 15px; }
+        .about-sign { font-family: var(--font-serif); font-style: italic; font-size: 28px; color: var(--accent); margin-top: 30px; }
+        .about-image-container { height: 500px; border-radius: 20px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.05); }
+        .about-image { width: 100%; height: 100%; object-fit: cover; }
     </style>
 </head>
 <body>
 
-    <!-- ШАПКА -->
     <header class="header" id="header">
         <div class="container nav">
             <a href="#" class="logo">
-                <!-- ВАЖНО: Убедитесь, что файл называется logo.jpg или измените на logo.png здесь -->
                 <img src="logo.jpg" alt="Кариана" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                
                 <div class="logo-fallback" style="display: none;">
                     <span class="logo-icon">🦋</span>
                     <span class="logo-text">Кариана</span>
                 </div>
             </a>
-            
             <nav class="nav-links">
                 <a href="#about">О студии</a>
                 <a href="#services">Услуги</a>
                 <a href="#promo">Акции</a>
             </nav>
-            
             <div class="nav-actions">
                 <a href="tel:+79252668" class="phone">925-26-68</a>
                 <a href="#contacts" class="btn" style="padding: 12px 24px; font-size: 11px;">Записаться</a>
-                <button class="burger" id="burger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
+                <button class="burger" id="burger"><span></span><span></span><span></span></button>
             </div>
         </div>
     </header>
 
-    <!-- МОБИЛЬНОЕ МЕНЮ -->
     <div class="mobile-menu" id="mobileMenu">
         <button class="close-menu" id="closeMenu">✕</button>
         <a href="#about">О студии</a>
@@ -741,68 +104,37 @@
         <a href="https://2gis.ru/spb/search/%D1%81%D0%B0%D0%BB%D0%BE%D0%BD%D1%8B%20%D0%BA%D1%80%D0%B0%D1%81%D0%BE%D1%82%D1%8B/firm/5348553838914183?m=30.316257%2C60.052617%2F16.92" target="_blank" style="font-size: 18px; color: var(--text-muted); margin-top: 20px; text-decoration: underline;">Мы на карте</a>
     </div>
 
-    <!-- ГЛАВНЫЙ ЭКРАН -->
     <section class="hero">
         <div class="container">
             <div class="hero-grid">
                 <div class="hero-content">
                     <span class="subtitle">Студия красоты · СПб</span>
-                    <h1 class="hero-title">
-                        Красота
-                        <span class="script">в каждой детали</span>
-                    </h1>
-                    <p class="hero-desc">
-                        Косметология, ногтевой сервис, парикмахерский зал, массаж и солярий — всё в одной студии на проспекте Луначарского, 11 к1.
-                    </p>
+                    <h1 class="hero-title">Красота <span class="script">в каждой детали</span></h1>
+                    <p class="hero-desc">Косметология, ногтевой сервис, парикмахерский зал, массаж и солярий — всё в одной студии на проспекте Луначарского, 11 к1.</p>
                     <div class="hero-btns">
                         <a href="#contacts" class="btn">Записаться →</a>
                         <a href="#services" class="btn btn-ghost">Наши услуги</a>
                     </div>
                 </div>
-                
                 <div class="hero-media-container">
                     <img src="https://i.pinimg.com/736x/e6/ac/0f/e6ac0f04ba25afdbbfb26233316cb1ad.jpg" alt="Студия красоты Кариана" class="hero-image">
                 </div>
             </div>
-            
             <div class="hero-features">
-                <div class="feature">
-                    <span class="feature-icon">✦</span>
-                    <div class="feature-text">
-                        <span class="feature-title">Премиум-уход</span>
-                        <span class="feature-sub">Профессиональные средства</span>
-                    </div>
-                </div>
-                <div class="feature">
-                    <span class="feature-icon">✓</span>
-                    <div class="feature-text">
-                        <span class="feature-title">Опытные мастера</span>
-                        <span class="feature-sub">Индивидуальный подход</span>
-                    </div>
-                </div>
-                <div class="feature">
-                    <span class="feature-icon">◷</span>
-                    <div class="feature-text">
-                        <span class="feature-title">Ежедневно</span>
-                        <span class="feature-sub">с 10:00 до 21:00</span>
-                    </div>
-                </div>
+                <div class="feature"><span class="feature-icon">✦</span><div class="feature-text"><span class="feature-title">Премиум-уход</span><span class="feature-sub">Профессиональные средства</span></div></div>
+                <div class="feature"><span class="feature-icon">✓</span><div class="feature-text"><span class="feature-title">Опытные мастера</span><span class="feature-sub">Индивидуальный подход</span></div></div>
+                <div class="feature"><span class="feature-icon">◷</span><div class="feature-text"><span class="feature-title">Ежедневно</span><span class="feature-sub">с 10:00 до 21:00</span></div></div>
             </div>
         </div>
     </section>
 
-    <!-- О СТУДИИ -->
     <section class="about" id="about">
         <div class="container about-grid">
             <div class="about-content">
                 <span class="subtitle">Добро пожаловать</span>
                 <h2 class="about-title">Красота. Забота. <span class="script">Уверенность.</span></h2>
-                <p class="about-text">
-                    «Кариана» — уютная студия красоты на Выборгской стороне, где забота о себе начинается с внимания к деталям. Мы объединили косметологию, уход за волосами и ногтями, массаж и солярий в одном пространстве.
-                </p>
-                <p class="about-text">
-                    Каждая процедура — это индивидуальный подход и профессиональные средства. Здесь можно расслабиться, восстановиться и выйти с ощущением лёгкости.
-                </p>
+                <p class="about-text">«Кариана» — уютная студия красоты на Выборгской стороне, где забота о себе начинается с внимания к деталям. Мы объединили косметологию, уход за волосами и ногтями, массаж и солярий в одном пространстве.</p>
+                <p class="about-text">Каждая процедура — это индивидуальный подход и профессиональные средства. Здесь можно расслабиться, восстановиться и выйти с ощущением лёгкости.</p>
                 <p class="about-sign">Побалуйте себя ♡</p>
             </div>
             <div class="about-image-container">
@@ -810,8 +142,63 @@
             </div>
         </div>
     </section>
+        <style>
+        /* Стили для оставшейся части */
+        .services { padding: 100px 0; }
+        .section-head { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 60px; flex-wrap: wrap; gap: 20px; }
+        .section-title { font-size: clamp(40px, 5vw, 64px); }
+        .section-desc { color: var(--text-muted); max-width: 300px; font-size: 14px; text-align: right; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .service-card { position: relative; background: var(--bg-card); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; transition: var(--transition); }
+        .service-card:hover { transform: translateY(-8px); border-color: rgba(224, 176, 160, 0.3); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4); }
+        .service-img-wrapper { width: 100%; height: 220px; overflow: hidden; position: relative; }
+        .service-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; }
+        .service-card:hover .service-img { transform: scale(1.08); }
+        .service-content { padding: 30px; flex-grow: 1; display: flex; flex-direction: column; background: linear-gradient(to bottom, rgba(28, 22, 21, 0.9), rgba(28, 22, 21, 1)); position: relative; z-index: 2; margin-top: -20px; border-radius: 20px 20px 0 0; }
+        .service-title { font-size: 28px; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+        .price-list { display: flex; flex-direction: column; gap: 14px; }
+        .price-item { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; font-size: 14px; color: var(--text-muted); }
+        .price-item span:first-child { color: var(--text-main); }
+        .price-dots { flex-grow: 1; border-bottom: 1px dotted rgba(255, 255, 255, 0.15); margin: 0 5px; transform: translateY(-3px); }
+        .price-val { font-family: var(--font-serif); font-size: 18px; color: var(--accent); white-space: nowrap; }
+        .cta { background: linear-gradient(135deg, rgba(224, 176, 160, 0.1) 0%, rgba(18, 14, 13, 1) 100%); padding: 100px 0; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.05); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+        .cta-title { font-size: clamp(40px, 6vw, 72px); margin-bottom: 20px; }
+        .cta-desc { color: var(--text-muted); max-width: 500px; margin: 0 auto 40px; }
+        .cta-btns { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+        .footer { background-color: var(--bg-main); padding: 60px 0 30px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+        .footer-logo { font-family: var(--font-serif); font-size: 28px; margin-bottom: 16px; }
+        .footer-desc { color: var(--text-muted); font-size: 14px; max-width: 300px; }
+        .footer-title { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 16px; font-weight: 500; }
+        .footer-list li { margin-bottom: 10px; }
+        .footer-list a, .footer-list span { font-size: 14px; color: var(--text-main); }
+        .footer-list a:hover { color: var(--accent); }
+        .address-link { display: inline-flex; align-items: center; gap: 6px; text-decoration: underline; text-decoration-color: rgba(224, 176, 160, 0.4); text-underline-offset: 4px; }
+        .address-link:hover { color: var(--accent); text-decoration-color: var(--accent); }
+        .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 30px; border-top: 1px solid rgba(255, 255, 255, 0.1); font-size: 12px; color: #666; flex-wrap: wrap; gap: 10px; }
+        .mobile-menu { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(18, 14, 13, 0.98); backdrop-filter: blur(10px); z-index: 99; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 30px; opacity: 0; pointer-events: none; transition: var(--transition); }
+        .mobile-menu.active { opacity: 1; pointer-events: auto; }
+        .mobile-menu a { font-family: var(--font-serif); font-size: 32px; color: var(--text-main); }
+        .close-menu { position: absolute; top: 24px; right: 24px; font-size: 30px; background: none; border: none; color: var(--text-main); cursor: pointer; }
+        @media (max-width: 992px) {
+            .hero-grid, .about-grid { grid-template-columns: 1fr; }
+            .hero-media-container { height: 400px; max-width: 400px; margin: 0 auto; }
+            .about-image-container { height: 400px; order: -1; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .nav-links, .nav-actions .phone { display: none; }
+            .burger { display: flex; }
+            .hero { padding: 120px 0 60px; }
+            .hero-title { font-size: 52px; }
+            .hero-features { flex-direction: column; gap: 20px; }
+            .section-head { flex-direction: column; align-items: flex-start; }
+            .section-desc { text-align: left; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+        }
+    </style>
 
-    <!-- УСЛУГИ -->
     <section class="services" id="services">
         <div class="container">
             <div class="section-head">
@@ -821,14 +208,9 @@
                 </div>
                 <p class="section-desc">Актуальные цены. Точную стоимость и запись уточняйте по телефону 925-26-68.</p>
             </div>
-
             <div class="services-grid">
-                
-                <!-- Косметология -->
                 <div class="service-card">
-                    <div class="service-img-wrapper">
-                        <img src="https://i.pinimg.com/736x/c9/d3/8b/c9d38b99c1a0601344a49db2fb842715.jpg" alt="Косметология" class="service-img" loading="lazy">
-                    </div>
+                    <div class="service-img-wrapper"><img src="https://i.pinimg.com/736x/c9/d3/8b/c9d38b99c1a0601344a49db2fb842715.jpg" alt="Косметология" class="service-img" loading="lazy"></div>
                     <div class="service-content">
                         <h3 class="service-title">Косметология</h3>
                         <ul class="price-list">
@@ -839,12 +221,8 @@
                         </ul>
                     </div>
                 </div>
-
-                <!-- Ногтевой сервис -->
                 <div class="service-card">
-                    <div class="service-img-wrapper">
-                        <img src="https://i.pinimg.com/736x/83/85/27/838527613140f66a03042c2fdbc37c81.jpg" alt="Ногтевой сервис" class="service-img" loading="lazy">
-                    </div>
+                    <div class="service-img-wrapper"><img src="https://i.pinimg.com/736x/83/85/27/838527613140f66a03042c2fdbc37c81.jpg" alt="Ногтевой сервис" class="service-img" loading="lazy"></div>
                     <div class="service-content">
                         <h3 class="service-title">Ногтевой сервис</h3>
                         <ul class="price-list">
@@ -855,12 +233,8 @@
                         </ul>
                     </div>
                 </div>
-
-                <!-- Парикмахерский зал -->
                 <div class="service-card">
-                    <div class="service-img-wrapper">
-                        <img src="https://i.pinimg.com/736x/1e/2a/bb/1e2abb48c672dd546560623b7c4e0b10.jpg" alt="Парикмахерский зал" class="service-img" loading="lazy">
-                    </div>
+                    <div class="service-img-wrapper"><img src="https://i.pinimg.com/736x/1e/2a/bb/1e2abb48c672dd546560623b7c4e0b10.jpg" alt="Парикмахерский зал" class="service-img" loading="lazy"></div>
                     <div class="service-content">
                         <h3 class="service-title">Парикмахерский зал</h3>
                         <ul class="price-list">
@@ -871,12 +245,8 @@
                         </ul>
                     </div>
                 </div>
-
-                <!-- Массаж -->
                 <div class="service-card">
-                    <div class="service-img-wrapper">
-                        <img src="https://i.pinimg.com/1200x/4e/a6/ef/4ea6ef873705a57c2db85f52d20408c0.jpg" alt="Массаж и LPG" class="service-img" loading="lazy">
-                    </div>
+                    <div class="service-img-wrapper"><img src="https://i.pinimg.com/1200x/4e/a6/ef/4ea6ef873705a57c2db85f52d20408c0.jpg" alt="Массаж и LPG" class="service-img" loading="lazy"></div>
                     <div class="service-content">
                         <h3 class="service-title">Массаж и LPG</h3>
                         <ul class="price-list">
@@ -887,12 +257,8 @@
                         </ul>
                     </div>
                 </div>
-
-                <!-- Брови и ресницы -->
                 <div class="service-card">
-                    <div class="service-img-wrapper">
-                        <img src="https://i.pinimg.com/736x/6d/01/51/6d01510111b98e74c6436a6c12ad0b44.jpg" alt="Брови и ресницы" class="service-img" loading="lazy">
-                    </div>
+                    <div class="service-img-wrapper"><img src="https://i.pinimg.com/736x/6d/01/51/6d01510111b98e74c6436a6c12ad0b44.jpg" alt="Брови и ресницы" class="service-img" loading="lazy"></div>
                     <div class="service-content">
                         <h3 class="service-title">Брови и ресницы</h3>
                         <ul class="price-list">
@@ -902,12 +268,8 @@
                         </ul>
                     </div>
                 </div>
-
-                <!-- Солярий -->
                 <div class="service-card">
-                    <div class="service-img-wrapper">
-                        <img src="https://i.pinimg.com/736x/5f/af/d6/5fafd6ae9dfdadc184d876b161274fde.jpg" alt="Солярий" class="service-img" loading="lazy">
-                    </div>
+                    <div class="service-img-wrapper"><img src="https://i.pinimg.com/736x/5f/af/d6/5fafd6ae9dfdadc184d876b161274fde.jpg" alt="Солярий" class="service-img" loading="lazy"></div>
                     <div class="service-content">
                         <h3 class="service-title">Солярий</h3>
                         <ul class="price-list">
@@ -917,19 +279,67 @@
                         </ul>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <!-- CTA / АКЦИИ -->
     <section class="cta" id="promo">
         <div class="container">
             <span class="subtitle">Специальные предложения</span>
             <h2 class="cta-title">Готовы <span class="script">сиять?</span></h2>
-            <p class="cta-desc">
-                Запишитесь на процедуру прямо сейчас. Действуют акции на массаж, маникюр и педикюр с покрытием.
-            </p>
+            <p class="cta-desc">Запишитесь на процедуру прямо сейчас. Действуют акции на массаж, маникюр и педикюр с покрытием.</p>
             <div class="cta-btns">
                 <a href="tel:+79252668" class="btn">Позвонить: 925-26-68</a>
-                <a href="https://vk.com/studiyakariana" target="_blank" class="btn btn-ghost">Мы ВКонтакте
+                <a href="https://vk.com/studiyakariana" target="_blank" class="btn btn-ghost">Мы ВКонтакте</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer" id="contacts">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo">Кариана</div>
+                    <p class="footer-desc">Студия красоты в Санкт-Петербурге. Косметология, ногти, волосы, массаж и солярий в одном месте.</p>
+                </div>
+                <div>
+                    <h4 class="footer-title">Контакты</h4>
+                    <ul class="footer-list">
+                        <li><a href="tel:+79252668">925-26-68</a></li>
+                        <li><a href="https://2gis.ru/spb/search/%D1%81%D0%B0%D0%BB%D0%BE%D0%BD%D1%8B%20%D0%BA%D1%80%D0%B0%D1%81%D0%BE%D1%82%D1%8B/firm/5348553838914183?m=30.316257%2C60.052617%2F16.92" target="_blank" class="address-link">СПб, пр. Луначарского, 11 к1</a></li>
+                        <li><span>Ежедневно 10:00 – 21:00</span></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Соцсети</h4>
+                    <ul class="footer-list">
+                        <li><a href="https://vk.com/studiyakariana" target="_blank">ВКонтакте</a></li>
+                        <li><a href="#">Telegram</a></li>
+                        <li><a href="#">WhatsApp</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2024 Студия красоты «Кариана». Все права защищены.</span>
+                <span>Есть противопоказания. Необходима консультация специалиста.</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) { header.classList.add('scrolled'); } 
+            else { header.classList.remove('scrolled'); }
+        });
+        const burger = document.getElementById('burger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const closeMenu = document.getElementById('closeMenu');
+        burger.addEventListener('click', () => { mobileMenu.classList.add('active'); });
+        closeMenu.addEventListener('click', () => { mobileMenu.classList.remove('active'); });
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => { mobileMenu.classList.remove('active'); });
+        });
+    </script>
+</body>
+</html>
