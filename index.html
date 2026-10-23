@@ -35,8 +35,15 @@
         .nav { display: flex; align-items: center; justify-content: space-between; }
         .logo { display: flex; align-items: center; gap: 12px; }
         
-        /* Логотип: ссылка на картинку + магия прозрачности */
-        .logo-img { height: 80px; width: auto; object-fit: contain; mix-blend-mode: screen; margin: -15px 0; }
+        /* МАГИЯ: Эти фильтры убирают белый фон, оставляя только золото */
+        .logo-img { 
+            height: 75px; 
+            width: auto; 
+            object-fit: contain; 
+            margin: -15px 0;
+            mix-blend-mode: multiply; /* Убирает белый цвет */
+            filter: contrast(1.2) brightness(1.1); /* Делает линии более четкими */
+        }
         
         .logo-fallback { display: flex; align-items: center; gap: 10px; }
         .logo-icon { font-size: 24px; color: var(--accent); }
@@ -137,8 +144,8 @@
     <header class="header" id="header">
         <div class="container nav">
             <a href="#" class="logo">
-                <!-- Прямая ссылка на ваше лого + mix-blend-mode в CSS убирает белый фон -->
-                <img src="https://i.pinimg.com/736x/25/61/19/256119b8a092c0f3bf10616bf2b7ef7a.jpg" alt="Кариана" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <!-- ВАЖНО: Файл должен называться logo.png (или поменяйте здесь на .jpg) -->
+                <img src="logo.png" alt="Кариана" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                 <div class="logo-fallback" style="display: none;">
                     <span class="logo-icon">🦋</span>
                     <span class="logo-text">Кариана</span>
@@ -347,4 +354,4 @@
         });
     </script>
 </body>
-</html> 
+</html>
