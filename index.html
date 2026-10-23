@@ -29,13 +29,14 @@
         .btn:hover { background-color: transparent; color: var(--accent); }
         .btn-ghost { background-color: transparent; color: var(--text-main); border: 1px solid rgba(255, 255, 255, 0.2); }
         .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+        
         .header { position: fixed; top: 0; left: 0; width: 100%; z-index: 100; padding: 20px 0; transition: var(--transition); }
         .header.scrolled { background: rgba(18, 14, 13, 0.95); backdrop-filter: blur(10px); padding: 15px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
         .nav { display: flex; align-items: center; justify-content: space-between; }
-        .logo { display: flex; align-items: center; gap: 12px; }
+        .logo { display: flex; align-items: center; gap: 20px; }
         
-        /* Настройки логотипа */
-        .logo-img { height: 80px; width: auto; object-fit: contain; mix-blend-mode: screen; margin: -20px 0; }
+        /* Стили логотипа с прозрачностью */
+        .logo-img { height: 70px; width: auto; object-fit: contain; mix-blend-mode: screen; margin: -15px 0; }
         
         .logo-fallback { display: flex; align-items: center; gap: 10px; }
         .logo-icon { font-size: 24px; color: var(--accent); }
@@ -48,6 +49,7 @@
         .phone:hover { color: var(--accent); }
         .burger { display: none; flex-direction: column; gap: 6px; background: none; border: none; cursor: pointer; padding: 5px; }
         .burger span { width: 25px; height: 1.5px; background-color: var(--text-main); transition: var(--transition); }
+
         .hero { position: relative; min-height: 100vh; display: flex; align-items: center; padding: 140px 0 80px; background: radial-gradient(circle at 70% 50%, rgba(224, 176, 160, 0.08) 0%, transparent 50%); }
         .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
         .hero-title { font-size: clamp(50px, 7vw, 100px); margin-bottom: 20px; }
@@ -62,6 +64,7 @@
         .feature-text { display: flex; flex-direction: column; }
         .feature-title { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 500; }
         .feature-sub { font-size: 12px; color: var(--text-muted); }
+
         .about { background-color: var(--bg-secondary); padding: 100px 0; }
         .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
         .about-title { font-size: clamp(36px, 5vw, 56px); margin-bottom: 24px; }
@@ -69,6 +72,64 @@
         .about-sign { font-family: var(--font-serif); font-style: italic; font-size: 28px; color: var(--accent); margin-top: 30px; }
         .about-image-container { height: 500px; border-radius: 20px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.05); }
         .about-image { width: 100%; height: 100%; object-fit: cover; }
+
+        .services { padding: 100px 0; }
+        .section-head { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 60px; flex-wrap: wrap; gap: 20px; }
+        .section-title { font-size: clamp(40px, 5vw, 64px); }
+        .section-desc { color: var(--text-muted); max-width: 300px; font-size: 14px; text-align: right; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .service-card { position: relative; background: var(--bg-card); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; transition: var(--transition); }
+        .service-card:hover { transform: translateY(-8px); border-color: rgba(224, 176, 160, 0.3); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4); }
+        .service-img-wrapper { width: 100%; height: 220px; overflow: hidden; position: relative; }
+        .service-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; }
+        .service-card:hover .service-img { transform: scale(1.08); }
+        .service-content { padding: 30px; flex-grow: 1; display: flex; flex-direction: column; background: linear-gradient(to bottom, rgba(28, 22, 21, 0.9), rgba(28, 22, 21, 1)); position: relative; z-index: 2; margin-top: -20px; border-radius: 20px 20px 0 0; }
+        .service-title { font-size: 28px; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+        .price-list { display: flex; flex-direction: column; gap: 14px; }
+        .price-item { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; font-size: 14px; color: var(--text-muted); }
+        .price-item span:first-child { color: var(--text-main); }
+        .price-dots { flex-grow: 1; border-bottom: 1px dotted rgba(255, 255, 255, 0.15); margin: 0 5px; transform: translateY(-3px); }
+        .price-val { font-family: var(--font-serif); font-size: 18px; color: var(--accent); white-space: nowrap; }
+
+        .cta { background: linear-gradient(135deg, rgba(224, 176, 160, 0.1) 0%, rgba(18, 14, 13, 1) 100%); padding: 100px 0; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.05); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+        .cta-title { font-size: clamp(40px, 6vw, 72px); margin-bottom: 20px; }
+        .cta-desc { color: var(--text-muted); max-width: 500px; margin: 0 auto 40px; }
+        .cta-btns { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+
+        .footer { background-color: var(--bg-main); padding: 60px 0 30px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+        .footer-logo { font-family: var(--font-serif); font-size: 28px; margin-bottom: 16px; }
+        .footer-desc { color: var(--text-muted); font-size: 14px; max-width: 300px; }
+        .footer-title { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 16px; font-weight: 500; }
+        .footer-list li { margin-bottom: 10px; }
+        .footer-list a, .footer-list span { font-size: 14px; color: var(--text-main); }
+        .footer-list a:hover { color: var(--accent); }
+        .address-link { display: inline-flex; align-items: center; gap: 6px; text-decoration: underline; text-decoration-color: rgba(224, 176, 160, 0.4); text-underline-offset: 4px; }
+        .address-link:hover { color: var(--accent); text-decoration-color: var(--accent); }
+        .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 30px; border-top: 1px solid rgba(255, 255, 255, 0.1); font-size: 12px; color: #666; flex-wrap: wrap; gap: 10px; }
+
+        .mobile-menu { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(18, 14, 13, 0.98); backdrop-filter: blur(10px); z-index: 99; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 30px; opacity: 0; pointer-events: none; transition: var(--transition); }
+        .mobile-menu.active { opacity: 1; pointer-events: auto; }
+        .mobile-menu a { font-family: var(--font-serif); font-size: 32px; color: var(--text-main); }
+        .close-menu { position: absolute; top: 24px; right: 24px; font-size: 30px; background: none; border: none; color: var(--text-main); cursor: pointer; }
+
+        @media (max-width: 992px) {
+            .hero-grid, .about-grid { grid-template-columns: 1fr; }
+            .hero-media-container { height: 400px; max-width: 400px; margin: 0 auto; }
+            .about-image-container { height: 400px; order: -1; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .nav-links, .nav-actions .phone { display: none; }
+            .burger { display: flex; }
+            .hero { padding: 120px 0 60px; }
+            .hero-title { font-size: 52px; }
+            .hero-features { flex-direction: column; gap: 20px; }
+            .section-head { flex-direction: column; align-items: flex-start; }
+            .section-desc { text-align: left; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+        }
     </style>
 </head>
 <body>
@@ -142,64 +203,7 @@
             </div>
         </div>
     </section>
-        <style>
-        /* Стили для оставшейся части */
-        .services { padding: 100px 0; }
-        .section-head { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 60px; flex-wrap: wrap; gap: 20px; }
-        .section-title { font-size: clamp(40px, 5vw, 64px); }
-        .section-desc { color: var(--text-muted); max-width: 300px; font-size: 14px; text-align: right; }
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
-        .service-card { position: relative; background: var(--bg-card); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; transition: var(--transition); }
-        .service-card:hover { transform: translateY(-8px); border-color: rgba(224, 176, 160, 0.3); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4); }
-        .service-img-wrapper { width: 100%; height: 220px; overflow: hidden; position: relative; }
-        .service-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; }
-        .service-card:hover .service-img { transform: scale(1.08); }
-        .service-content { padding: 30px; flex-grow: 1; display: flex; flex-direction: column; background: linear-gradient(to bottom, rgba(28, 22, 21, 0.9), rgba(28, 22, 21, 1)); position: relative; z-index: 2; margin-top: -20px; border-radius: 20px 20px 0 0; }
-        .service-title { font-size: 28px; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
-        .price-list { display: flex; flex-direction: column; gap: 14px; }
-        .price-item { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; font-size: 14px; color: var(--text-muted); }
-        .price-item span:first-child { color: var(--text-main); }
-        .price-dots { flex-grow: 1; border-bottom: 1px dotted rgba(255, 255, 255, 0.15); margin: 0 5px; transform: translateY(-3px); }
-        .price-val { font-family: var(--font-serif); font-size: 18px; color: var(--accent); white-space: nowrap; }
-        .cta { background: linear-gradient(135deg, rgba(224, 176, 160, 0.1) 0%, rgba(18, 14, 13, 1) 100%); padding: 100px 0; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.05); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
-        .cta-title { font-size: clamp(40px, 6vw, 72px); margin-bottom: 20px; }
-        .cta-desc { color: var(--text-muted); max-width: 500px; margin: 0 auto 40px; }
-        .cta-btns { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
-        .footer { background-color: var(--bg-main); padding: 60px 0 30px; }
-        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
-        .footer-logo { font-family: var(--font-serif); font-size: 28px; margin-bottom: 16px; }
-        .footer-desc { color: var(--text-muted); font-size: 14px; max-width: 300px; }
-        .footer-title { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 16px; font-weight: 500; }
-        .footer-list li { margin-bottom: 10px; }
-        .footer-list a, .footer-list span { font-size: 14px; color: var(--text-main); }
-        .footer-list a:hover { color: var(--accent); }
-        .address-link { display: inline-flex; align-items: center; gap: 6px; text-decoration: underline; text-decoration-color: rgba(224, 176, 160, 0.4); text-underline-offset: 4px; }
-        .address-link:hover { color: var(--accent); text-decoration-color: var(--accent); }
-        .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 30px; border-top: 1px solid rgba(255, 255, 255, 0.1); font-size: 12px; color: #666; flex-wrap: wrap; gap: 10px; }
-        .mobile-menu { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(18, 14, 13, 0.98); backdrop-filter: blur(10px); z-index: 99; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 30px; opacity: 0; pointer-events: none; transition: var(--transition); }
-        .mobile-menu.active { opacity: 1; pointer-events: auto; }
-        .mobile-menu a { font-family: var(--font-serif); font-size: 32px; color: var(--text-main); }
-        .close-menu { position: absolute; top: 24px; right: 24px; font-size: 30px; background: none; border: none; color: var(--text-main); cursor: pointer; }
-        @media (max-width: 992px) {
-            .hero-grid, .about-grid { grid-template-columns: 1fr; }
-            .hero-media-container { height: 400px; max-width: 400px; margin: 0 auto; }
-            .about-image-container { height: 400px; order: -1; }
-            .footer-grid { grid-template-columns: 1fr 1fr; }
-        }
-        @media (max-width: 768px) {
-            .nav-links, .nav-actions .phone { display: none; }
-            .burger { display: flex; }
-            .hero { padding: 120px 0 60px; }
-            .hero-title { font-size: 52px; }
-            .hero-features { flex-direction: column; gap: 20px; }
-            .section-head { flex-direction: column; align-items: flex-start; }
-            .section-desc { text-align: left; }
-            .footer-grid { grid-template-columns: 1fr; }
-            .footer-bottom { flex-direction: column; text-align: center; }
-        }
-    </style>
-
-    <section class="services" id="services">
+        <section class="services" id="services">
         <div class="container">
             <div class="section-head">
                 <div>
